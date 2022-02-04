@@ -1,7 +1,7 @@
 # [helm-chart](https://github.com/UCLATALL/helm-chart)
 
 This repository stores in its [`gh-pages` branch](https://github.com/UCLATALL/helm-chart/tree/gh-pages) _packaged_ Helm charts. These packaged Helm
-charts are made available as a valid [Helm chart repository](https://helm.sh/docs/chart_repository/) on [an automatically updated website](https://uclatall.github.io/helm-chart/). We use [chartpress][https://github.com/jupyterhub/chartpress] to add package and add Helm charts to this Helm chart repository.
+charts are made available as a valid [Helm chart repository](https://helm.sh/docs/chart_repository/) on [an automatically updated website](https://uclatall.github.io/helm-chart/). We use [chartpress](https://github.com/jupyterhub/chartpress) to add package and add Helm charts to this Helm chart repository.
 
 
 ## Usage
