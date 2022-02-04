@@ -1,0 +1,49 @@
+---
+layout: none
+---
+
+{%- assign binderhub = site.data.index.entries.binderhub | sort: 'created' | reverse -%}
+{%- assign bh_latest = binderhub | first -%}
+
+{%- capture "bh_stable_version" -%}
+{%- for chart in binderhub -%}
+    {%- unless chart.version contains "-" -%}
+        {{ chart.version }};
+    {%- endunless -%}
+{%- endfor -%}
+{%- endcapture -%}
+{%- assign bh_stable_version = bh_stable_version | split: ";" | first -%}
+
+{%- capture "bh_pre_version" -%}
+{%- for chart in binderhub -%}
+    {%- assign dots_count_after_dash = chart.version | split: "-" | shift | first | split: "." | size | minus: 1 -%}
+    {%- assign first_char_after_dash = chart.version | split: "-" | shift | first | slice: 0 -%}
+    {%- if chart.version contains "-" -%}
+        {%- if dots_count_after_dash == 1 -%}
+            {%- if first_char_after_dash != "n" -%}
+                {{ chart.version }};
+            {%- endif -%}
+        {%- endif -%}
+    {%- else -%}
+        {{ chart.version }};
+    {%- endif -%}
+{%- endfor -%}
+{%- endcapture -%}
+{%- assign bh_pre_version = bh_pre_version | split: ";" | first -%}
+
+{
+    "jupyterhub":
+        {
+            "stable": "{{ jh_stable_version }}",
+            "pre": "{{ jh_pre_version }}",
+            "dev": "{{ jh_latest.version }}",
+            "latest": "{{ jh_latest.version }}"
+        },
+    "binderhub":
+        {
+            "stable": "{{ bh_stable_version }}",
+            "pre": "{{ bh_pre_version }}",
+            "dev": "{{ bh_latest.version }}",
+            "latest": "{{ bh_latest.version }}"
+        }
+}

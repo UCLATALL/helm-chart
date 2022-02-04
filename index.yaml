@@ -1,0 +1,16 @@
+apiVersion: v1
+entries:
+  binderhub:
+  - apiVersion: v2
+    created: "2022-02-03T19:14:29.679768-08:00"
+    dependencies:
+    - name: binderhub
+      repository: https://jupyterhub.github.io/helm-chart/
+      version: 0.2.0-n839.hf8a9d7a
+    digest: 8449bcdadd12afcc93f0be86c23912852551cbc31723429c45ad24d9108e3b8d
+    kubeVersion: '>= 1.15.0-0'
+    name: binderhub
+    urls:
+    - https://uclatall.github.io/helm-chart/binderhub-0.0.1-n013.h4e5deda.tgz
+    version: 0.0.1-n013.h4e5deda
+generated: "2022-02-03T19:14:29.676246-08:00"
